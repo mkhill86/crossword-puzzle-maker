@@ -1,0 +1,17 @@
+#puzzle-container {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  height: 500px;
+  width: 500px;
+  border: black 1px solid;
+  justify-content: center;
+  margin: 100px auto;
+}
+
+#puzzle-container p {
+  text-align: left;
+  padding: 5px;
+  margin: 5px;
+  font-size: 30px;
+}
