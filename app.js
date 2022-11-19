@@ -27,12 +27,48 @@ const letters = {
   26: 'z',
 }
 
+const puzzleContainer = document.querySelector('#puzzle-container');
+const fillButton = document.querySelector('#fill');
+const startButton = document.querySelector('#start');
+const resetButton = document.querySelector('#reset');
+// ----------this is where I wrote the random letter logic--------
+// let count = 0
+//   while (count <= 196) {
+//     count++;
+//     let box = document.createElement('p');
+//     const random = Math.floor(Math.random() * 26) + 1;
+//     const getRandomLetter = function () {
+//       return letters[random];
+//     };
+//     box.innerHTML = getRandomLetter();
+//     puzzleContainer.appendChild(box);
+//   }
 
+startButton.addEventListener('click', (e) => {
+for (let i = 0; i <= 250; i++) {
+  const input = document.createElement('input');
+  puzzleContainer.appendChild(input);
+  input.setAttribute('maxlength', '1');
 
-for (let i = 0; i <= 101; i++ ) {
-  const random = Math.floor(Math.random() * 26) + 1;
-  function getRandomLetter() {
-    return letters[random];
+  fillButton.addEventListener('click', (e) => {
+    input.setAttribute('readonly', 'readonly');
+    if (input.value == '') {
+        const random = Math.floor(Math.random() * 26) + 1;
+        const getRandomLetter = function () {
+        return letters[random];
+      };
+      input.value = getRandomLetter();
+  } else {
+    return;
   }
-  console.log(getRandomLetter());
+  })
+
+  resetButton.addEventListener('click', (e) => {
+    input.value = '';
+    input.removeAttribute('readonly', 'readonly');
+  })
+
 }
+})
+
+
