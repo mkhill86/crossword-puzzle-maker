@@ -31,6 +31,9 @@ const puzzleContainer = document.querySelector('#puzzle-container');
 const fillButton = document.querySelector('#fill');
 const startButton = document.querySelector('#start');
 const resetButton = document.querySelector('#reset');
+const wordBankNumber = document.querySelector('#word-list-number');
+const wordBank = document.querySelector('.word-list-container');
+
 // ----------this is where I wrote the random letter logic--------
 // let count = 0
 //   while (count <= 196) {
@@ -45,6 +48,16 @@ const resetButton = document.querySelector('#reset');
 //   }
 
 startButton.addEventListener('click', (e) => {
+if (wordBankNumber.value == '') {
+  alert('First, choose how many words!')
+} else {
+  for (let i = 0; i <= wordBankNumber.value;  i++) {
+    const inputWord = document.createElement('input');
+    inputWord.setAttribute('type', 'text');
+    inputWord.setAttribute('class', 'input-word-list');
+    inputWord.setAttribute('maxlength', '15')
+    wordBank.appendChild(inputWord);
+
 for (let i = 0; i <= 250; i++) {
   const input = document.createElement('input');
   puzzleContainer.appendChild(input);
@@ -53,6 +66,7 @@ for (let i = 0; i <= 250; i++) {
 
   fillButton.addEventListener('click', (e) => {
     input.setAttribute('readonly', 'readonly');
+    inputWord.setAttribute('readonly', 'readonly');
     if (input.value == '') {
         const random = Math.floor(Math.random() * 26) + 1;
         const getRandomLetter = function () {
@@ -67,8 +81,11 @@ for (let i = 0; i <= 250; i++) {
   resetButton.addEventListener('click', (e) => {
     input.value = '';
     input.removeAttribute('readonly', 'readonly');
+    wordBank.removeChild(inputWord);
   })
 
+}
+}
 }
 })
 
