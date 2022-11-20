@@ -53,6 +53,13 @@ h1 {
   margin: 5px;
 }
 
+.input-word-list-filled {
+  width: 250px;
+  font-size: 20px;
+  margin: 5px;
+  border: none;
+}
+
 .h2-word-list {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

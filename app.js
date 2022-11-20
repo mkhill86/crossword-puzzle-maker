@@ -67,6 +67,7 @@ for (let i = 0; i <= 250; i++) {
   fillButton.addEventListener('click', (e) => {
     input.setAttribute('readonly', 'readonly');
     inputWord.setAttribute('readonly', 'readonly');
+    inputWord.setAttribute('class', 'input-word-list-filled');
     if (input.value == '') {
         const random = Math.floor(Math.random() * 26) + 1;
         const getRandomLetter = function () {
@@ -82,6 +83,7 @@ for (let i = 0; i <= 250; i++) {
     input.value = '';
     input.removeAttribute('readonly', 'readonly');
     wordBank.removeChild(inputWord);
+    wordBankNumber.value = '';
   })
 
 }
