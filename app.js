@@ -49,6 +49,7 @@ for (let i = 0; i <= 250; i++) {
   const input = document.createElement('input');
   puzzleContainer.appendChild(input);
   input.setAttribute('maxlength', '1');
+  input.setAttribute('class', 'input-word-search');
 
   fillButton.addEventListener('click', (e) => {
     input.setAttribute('readonly', 'readonly');

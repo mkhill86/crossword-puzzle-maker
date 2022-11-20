@@ -9,14 +9,64 @@
 </head>
 <body>
   <h1>Make your own Word Search Puzzle!</h1>
-  <div id="puzzle-container">
+<div class="main-div">
+  <div class="instructions">
+    <h2 class="h2-instructions">Following these directions to create your own custom word search puzzle</h2>
+    <h3 class="h3-instructions">1. Press Start</h3>
+    <p class="p-instructions">Type in any word you want into the word search puzzle box. Make sure to also list your word under the Word List section.</p>
+    <h3 class="h3-instructions">2. Press Fill</h3>
+    <p class="p-instructions">This will freeze all your chosen words and then fill the empty spaces with random letters.</p>
+    <h3 class="h3-instructions">3. Press Reset</h3>
+    <p class="p-instructions">Clears the board and now it's time to make a new one!</p>
+  </div>
+  <div class="puzzle-button">
+    <div id="puzzle-container">
     
+    </div>
+    <div class="button-container">
+      <button type="button" id="start">START</button>
+      <button type="button" id="fill">FILL</button>
+      <button type="button" id="reset">RESET</button>
+    </div>
   </div>
-  <div class="button-container">
-  <button type="button" id="start">START</button>
-  <button type="button" id="fill">FILL</button>
-  <button type="button" id="reset">RESET</button>
+  <div class="word-list-container">
+    <h2 class="h2-word-list">Word Bank</h2>
+    <!-- <h2 class="h2-word-list">Enter your words here :</h2>
+    <form>
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+      <input type="text" class="input-word-list" />
+    </form> -->
+    <form action="">
+    <label for="word-list-number" class="word-list-label">Choose how many words : </label>
+    <select name="word-list-number" id="word-list-number">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+    </select>
+    </form>
   </div>
+</div>
 
   <script src="app.js"></script>
 </body>
