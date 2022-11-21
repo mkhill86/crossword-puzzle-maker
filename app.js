@@ -33,6 +33,7 @@ const startButton = document.querySelector('#start');
 const resetButton = document.querySelector('#reset');
 const wordBankNumber = document.querySelector('#word-list-number');
 const wordBank = document.querySelector('.word-list-container');
+const alertContainer = document.querySelector('.alert-container');
 
 // ----------this is where I wrote the random letter logic--------
 // let count = 0
@@ -46,17 +47,26 @@ const wordBank = document.querySelector('.word-list-container');
 //     box.innerHTML = getRandomLetter();
 //     puzzleContainer.appendChild(box);
 //   }
+  const redAlert = document.createElement('h3');
+  alertContainer.appendChild(redAlert);
+  redAlert.innerText = 'DO THIS PART FIRST!';
+  redAlert.setAttribute('class', 'red-alert-hidden');
 
 startButton.addEventListener('click', (e) => {
 if (wordBankNumber.value == '') {
-  alert('First, choose how many words!')
+  redAlert.setAttribute('class', 'red-alert');
+
 } else {
-  for (let i = 0; i <= wordBankNumber.value;  i++) {
+  redAlert.setAttribute('class', 'red-alert-hidden');
+  for (let i = 0; i < wordBankNumber.value;  i++) {
     const inputWord = document.createElement('input');
     inputWord.setAttribute('type', 'text');
     inputWord.setAttribute('class', 'input-word-list');
     inputWord.setAttribute('maxlength', '15')
     wordBank.appendChild(inputWord);
+
+    wordBankNumber.disabled = true;
+    startButton.disabled = true;
 
 for (let i = 0; i <= 250; i++) {
   const input = document.createElement('input');
@@ -65,18 +75,21 @@ for (let i = 0; i <= 250; i++) {
   input.setAttribute('class', 'input-word-search');
 
   fillButton.addEventListener('click', (e) => {
-    input.setAttribute('readonly', 'readonly');
-    inputWord.setAttribute('readonly', 'readonly');
-    inputWord.setAttribute('class', 'input-word-list-filled');
-    if (input.value == '') {
+    if (inputWord.value == '') {
+      redAlert.setAttribute('class', 'red-alert');
+      } else if (input.value == '' && inputWord.value !== '') {
         const random = Math.floor(Math.random() * 26) + 1;
         const getRandomLetter = function () {
         return letters[random];
       };
       input.value = getRandomLetter();
-  } else {
-    return;
-  }
+      redAlert.setAttribute('class', 'red-alert-hidden');
+      input.setAttribute('readonly', 'readonly');
+      inputWord.setAttribute('readonly', 'readonly');
+      inputWord.setAttribute('class', 'input-word-list-filled'); 
+    } else {
+      input.value = input.value.toLowerCase();
+    }
   })
 
   resetButton.addEventListener('click', (e) => {
@@ -84,6 +97,9 @@ for (let i = 0; i <= 250; i++) {
     input.removeAttribute('readonly', 'readonly');
     wordBank.removeChild(inputWord);
     wordBankNumber.value = '';
+    startButton.disabled = false;
+    wordBankNumber.disabled = false;
+    redAlert.setAttribute('class', 'red-alert-hidden');
   })
 
 }
